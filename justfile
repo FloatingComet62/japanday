@@ -1,9 +1,9 @@
 dev:
-  bun dev
+  bun run dev
 
 build:
-  bun build
-  bun start
+  bun run build
+  bun run start
 
 fmt:
-  bun format
+  bun run format
