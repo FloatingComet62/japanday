@@ -1,11 +1,15 @@
-import { Hero } from "@/components/hero";
-import { Navbar } from "@/components/navbar";
+import { Hero } from "./hero";
+import { Navbar } from "./navbar";
+import { ProblemStatements } from "./problem_statements";
+import { Timeline } from "./timeline";
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center min-h-full bg-white">
+    <div className="flex flex-col items-center min-h-[100vh]">
       <Navbar />
       <Hero />
+      <Timeline />
+      <ProblemStatements />
     </div>
   )
 }

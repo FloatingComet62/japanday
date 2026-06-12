@@ -37,13 +37,13 @@ function RawGlass({
   }} {...props} />
 }
 
-function Glass({ variant, children }: {
+function Glass({ variant, children, ...props }: {
   variant:
     'frost' | 'ice' | 'thin' |
     'silk' | 'obsidian' | 'neon' |
     'plastic' | 'ocean' | 'cloud' | 'minimal',
   children: React.ReactNode,
-}) {
+} & React.ComponentProps<typeof Card>) {
   if (variant == 'frost') {
     return <RawGlass
       card_color={{ r: 255, g: 255, b: 255 }}
@@ -61,6 +61,7 @@ function Glass({ variant, children }: {
         spread: 0,
         opacity: 0.3
       }}
+      {...props}
     >{children}</RawGlass>
   }
   if (variant == 'ice') {
@@ -80,6 +81,7 @@ function Glass({ variant, children }: {
         spread: 5,
         opacity: 0.4
       }}
+      {...props}
     >{children}</RawGlass>
   }
   if (variant == 'thin') {
@@ -99,6 +101,7 @@ function Glass({ variant, children }: {
         spread: -5,
         opacity: 0.1
       }}
+      {...props}
     >{children}</RawGlass>
   }
   if (variant == 'silk') {
@@ -118,6 +121,7 @@ function Glass({ variant, children }: {
         spread: 10,
         opacity: 0.2
       }}
+      {...props}
     >{children}</RawGlass>
   }
   if (variant == 'obsidian') {
@@ -137,6 +141,7 @@ function Glass({ variant, children }: {
         spread: 5,
         opacity: 0.5
       }}
+      {...props}
     >{children}</RawGlass>
   }
   if (variant == 'neon') {
@@ -156,6 +161,7 @@ function Glass({ variant, children }: {
         spread: 10,
         opacity: 0.6
       }}
+      {...props}
     >{children}</RawGlass>
   }
   if (variant == 'plastic') {
@@ -175,6 +181,7 @@ function Glass({ variant, children }: {
         spread: 0,
         opacity: 0.3
       }}
+      {...props}
     >{children}</RawGlass>
   }
   if (variant == 'ocean') {
@@ -194,6 +201,7 @@ function Glass({ variant, children }: {
         spread: 10,
         opacity: 0.4
       }}
+      {...props}
     >{children}</RawGlass>
   }
   if (variant == 'cloud') {
@@ -213,6 +221,7 @@ function Glass({ variant, children }: {
         spread: 2,
         opacity: 0.1
       }}
+      {...props}
     >{children}</RawGlass>
   }
   return <RawGlass
@@ -231,6 +240,7 @@ function Glass({ variant, children }: {
       spread: 0,
       opacity: 0
     }}
+    {...props}
   >{children}</RawGlass>
 }
 
