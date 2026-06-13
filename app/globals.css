@@ -55,8 +55,8 @@
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
+  --primary: #8f0020;
+  --primary-foreground: #ffffff;
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
   --muted: oklch(0.97 0 0);
@@ -127,4 +127,133 @@
   html {
     @apply font-sans;
   }
+}
+
+/* ------------------------------------------------------------------ */
+/* Japan Day Hack design system (ported from Stitch)                  */
+/* ------------------------------------------------------------------ */
+@theme {
+  /* Material-style brand palette */
+  --color-surface: #f9f9f9;
+  --color-surface-bright: #f9f9f9;
+  --color-surface-dim: #dadada;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f4f3f3;
+  --color-surface-container: #eeeeee;
+  --color-surface-container-high: #e8e8e8;
+  --color-surface-container-highest: #e2e2e2;
+  --color-surface-variant: #e2e2e2;
+  --color-surface-tint: #be032e;
+  --color-on-surface: #1a1c1c;
+  --color-on-surface-variant: #5c403f;
+  --color-on-background: #1a1c1c;
+
+  --color-primary-container: #bc002d;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #ffc9c8;
+  --color-primary-fixed: #ffdad9;
+  --color-primary-fixed-dim: #ffb3b3;
+  --color-on-primary-fixed: #400009;
+  --color-on-primary-fixed-variant: #920021;
+  --color-inverse-primary: #ffb3b3;
+
+  --color-secondary-container: #e2dfde;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #636262;
+  --color-secondary-fixed: #e5e2e1;
+  --color-secondary-fixed-dim: #c8c6c5;
+  --color-on-secondary-fixed: #1b1b1b;
+  --color-on-secondary-fixed-variant: #474746;
+
+  --color-tertiary: #464545;
+  --color-tertiary-container: #5d5d5d;
+  --color-on-tertiary: #ffffff;
+  --color-on-tertiary-container: #d8d6d6;
+  --color-tertiary-fixed: #e4e2e1;
+  --color-tertiary-fixed-dim: #c8c6c6;
+  --color-on-tertiary-fixed: #1b1c1c;
+  --color-on-tertiary-fixed-variant: #474747;
+
+  --color-outline: #906f6f;
+  --color-outline-variant: #e4bdbc;
+  --color-inverse-surface: #2f3131;
+  --color-inverse-on-surface: #f1f1f1;
+  --color-error: #ba1a1a;
+  --color-error-container: #ffdad6;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #93000a;
+
+  /* Stitch "secondary" muted text colour (kept off shadcn's --secondary) */
+  --color-faint: #5f5e5e;
+  --color-faint-dim: #c8c6c5;
+
+  /* Type families (wired to next/font variables in layout.tsx) */
+  --font-display-lg: var(--font-hanken), "Hanken Grotesk", sans-serif;
+  --font-display-lg-mobile: var(--font-hanken), "Hanken Grotesk", sans-serif;
+  --font-headline-md: var(--font-hanken), "Hanken Grotesk", sans-serif;
+  --font-headline-sm: var(--font-hanken), "Hanken Grotesk", sans-serif;
+  --font-body-lg: var(--font-sans), "Inter", sans-serif;
+  --font-body-md: var(--font-sans), "Inter", sans-serif;
+  --font-button: var(--font-sans), "Inter", sans-serif;
+  --font-label-caps: var(--font-jetbrains), "JetBrains Mono", monospace;
+
+  /* Type scale */
+  --text-display-lg: 72px;
+  --text-display-lg--line-height: 1.1;
+  --text-display-lg--letter-spacing: -0.04em;
+  --text-display-lg--font-weight: 800;
+  --text-display-lg-mobile: 40px;
+  --text-display-lg-mobile--line-height: 1.2;
+  --text-display-lg-mobile--letter-spacing: -0.02em;
+  --text-display-lg-mobile--font-weight: 800;
+  --text-headline-md: 32px;
+  --text-headline-md--line-height: 1.3;
+  --text-headline-md--letter-spacing: -0.01em;
+  --text-headline-md--font-weight: 700;
+  --text-headline-sm: 24px;
+  --text-headline-sm--line-height: 1.4;
+  --text-headline-sm--font-weight: 600;
+  --text-body-lg: 18px;
+  --text-body-lg--line-height: 1.6;
+  --text-body-lg--font-weight: 400;
+  --text-body-md: 16px;
+  --text-body-md--line-height: 1.6;
+  --text-body-md--font-weight: 400;
+  --text-button: 14px;
+  --text-button--line-height: 1;
+  --text-button--letter-spacing: 0.02em;
+  --text-button--font-weight: 600;
+  --text-label-caps: 12px;
+  --text-label-caps--line-height: 1;
+  --text-label-caps--letter-spacing: 0.1em;
+  --text-label-caps--font-weight: 500;
+
+  /* Spacing tokens (Swiss grid rhythm) */
+  --spacing-margin-desktop: 64px;
+  --spacing-margin-mobile: 16px;
+  --spacing-section-gap: 120px;
+  --spacing-gutter: 24px;
+  --spacing-unit: 8px;
+}
+
+/* Decorative helpers from the Stitch design */
+.ambient-shadow {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+}
+
+.card-hover {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* Tech-Japanese motif grid background */
+.bg-pattern {
+  background-image:
+    linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: center center;
 }
