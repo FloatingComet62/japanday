@@ -6,34 +6,19 @@ import { Label } from "@/components/ui/label";
 
 export function Hero() {
   return (
-    <div className="flex w-full justify-evenly pl-6 pr-6 pt-2">
-      <div className="flex items-center justify-center">
-        HACKATHON NAME HERE
+    <div className="flex w-full justify-between pl-24 pr-24 pt-2 min-h-[60vh] mb-[20vh]">
+      <div className="h-full m-auto flex flex-col gap-6">
+        <div className="text-xl">
+          <span className="text-2xl text-orange font-bold mr-2">HACKATHON NAME HERE</span>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id ullamcorper ex, ut vehicula quam. Nunc quam odio, lacinia quis est vel, varius convallis dolor. 
+        </div>
+        <Button>Register Now</Button>
       </div>
-      <Glass variant="frost" className="p-4 w-[30vw] flex flex-col items-center">
-        <CardContent>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id ullamcorper ex, ut vehicula quam. Nunc quam odio, lacinia quis est vel, varius convallis dolor. Sed molestie porttitor augue, a molestie lorem venenatis at. Proin vel risus elit. Pellentesque vulputate auctor mi in consequat. Integer eget ex sit amet lorem feugiat facilisis eu a lacus.
-          <form className="mt-6">
-            <Label htmlFor="email" className="mb-2">Email</Label>
-            <Input
-              className="mb-2 rounded-lg"
-              id="email"
-              type="email"
-              required
-            />
-            <Label htmlFor="phone" className="mt-2 mb-2">Phone</Label>
-            <Input
-              className="rounded-lg"
-              id="phone"
-              type="number"
-              required
-            />
-          </form>
-        </CardContent>
-        <CardAction className="flex w-full items-center justify-center">
-          <Button className="w-full cursor-pointer rounded-xl">Register</Button>
-        </CardAction>
-      </Glass>
+      <div className="min-w-[50vw]">
+        <div className="flex items-center justify-center h-full">
+        LOGO GOES HERE
+        </div>
+      </div>
     </div>
   )
 }

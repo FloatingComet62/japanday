@@ -1,9 +1,9 @@
 dev:
-  bun run dev
+  pnpm run dev
 
 build:
-  bun run build
-  bun run start
+  pnpm run build
+  pnpm run start
 
 fmt:
-  bun run format
+  pnpm run format
