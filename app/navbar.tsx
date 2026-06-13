@@ -11,7 +11,7 @@ const links = [
   { label: "Home", href: "/" },
   { label: "Timeline", href: "/timeline" },
   { label: "Problem Statements", href: "/problem-statements" },
-  { label: "Sponsors", href: "#" },
+  { label: "Sponsors", href: "/sponsors" },
   { label: "About", href: "#" },
   { label: "Contact", href: "#" },
 ]
