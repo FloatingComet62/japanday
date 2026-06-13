@@ -18,7 +18,7 @@ export function Footer() {
   return (
     <footer className="bg-surface-container-lowest border-t border-outline-variant/50 w-full py-section-gap">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop max-w-[1280px] mx-auto">
-        <div className="col-span-1 md:col-span-2 mb-8 md:mb-0">
+        <div className="col-span-1 md:col-span-2">
           <div className="flex items-center gap-2.5 mb-4">
             <Logo className="h-8 w-8" />
             <span className="font-display-lg text-headline-sm font-bold text-on-surface">
@@ -41,7 +41,7 @@ export function Footer() {
         </div>
 
         <div className="col-span-1 flex flex-col gap-3">
-          <h4 className="font-label-caps text-label-caps text-on-surface uppercase mb-2">
+          <h4 className="font-label-caps text-label-caps text-on-surface uppercase">
             Connect
           </h4>
           {connectLinks.map((label) => (

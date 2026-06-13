@@ -12,7 +12,7 @@ type Stat = {
 
 const stats: Stat[] = [
   { target: 500, label: "Participants" },
-  { target: 48, suffix: "h", label: "Hours" },
+  { target: 48, suffix: "h", label: "Hours" }, // harshjyot, idhar "h" ko "H" karna hai
   { target: 20, suffix: "+", label: "Industry Problems" },
   { target: 2024, prefix: "Mar ", label: "Event Date" },
 ];

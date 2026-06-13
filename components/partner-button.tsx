@@ -18,7 +18,7 @@ export function PartnerButton({
     <Button
       asChild
       className={cn(
-        "h-auto rounded-[2px] bg-primary-container text-button font-button text-on-primary hover:bg-primary",
+        "h-auto rounded-xl bg-primary-container text-button font-button text-on-primary hover:bg-primary",
         className,
       )}
     >

@@ -14,7 +14,7 @@ const fadeUp = {
   viewport: { once: true, amount: 0.2 },
 }
 
-export default function SponsorsPage() {
+export default function ParntersPage() {
   return (
     <main className="flex-grow pt-32 pb-section-gap relative overflow-hidden">
       {/* Subtle ambient background element */}
