@@ -12,7 +12,7 @@ export function Hero() {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id ullamcorper ex, ut vehicula quam. Nunc quam odio, lacinia quis est vel, varius convallis dolor. 
         </div>
         <Sheet>
-          <SheetTrigger>
+          <SheetTrigger asChild>
             <Button className="w-full">Register Now</Button>
           </SheetTrigger>
           <SheetContent>
@@ -44,7 +44,7 @@ export function Hero() {
             </div>
             <SheetFooter>
               <SheetClose className="flex flex-col w-full gap-2">
-                <Button>Register</Button>
+                Register
               </SheetClose>
             </SheetFooter>
           </SheetContent>

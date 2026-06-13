@@ -26,7 +26,7 @@ export function Timeline() {
     <div id="timeline" className="py-24 flex flex-col items-center gap-4">
     <div className="text-6xl font-bold">Timeline</div>
       {events.map((event, index) => (
-        <Glass id={event.title} variant="frost" className="p-4 w-[50vw]">
+        <Glass key={event.title} variant="frost" className="p-4 w-[50vw]">
           <motion.div
             key={event.year}
             initial={{ opacity: 0, y: 40 }}
