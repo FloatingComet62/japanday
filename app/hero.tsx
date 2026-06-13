@@ -1,7 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Sheet, SheetClose, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import { TooltipContent, Tooltip, TooltipTrigger } from "@/components/ui/tooltip";
 
 export function Hero() {
   return (
@@ -11,44 +9,14 @@ export function Hero() {
           <span className="text-6xl text-orange font-bold mr-2">HACKATHON NAME HERE</span>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id ullamcorper ex, ut vehicula quam. Nunc quam odio, lacinia quis est vel, varius convallis dolor. 
         </div>
-        <Sheet>
-          <SheetTrigger asChild>
+       <Tooltip>
+          <TooltipTrigger asChild>
             <Button className="w-full text-4xl p-12">Register Now</Button>
-          </SheetTrigger>
-          <SheetContent>
-            <SheetHeader>
-              <SheetTitle>Registration</SheetTitle>
-              <SheetDescription>Sign up for HACKATHON NAME HERE!</SheetDescription>
-            </SheetHeader>
-            <div className="ml-6 mr-6 flex flex-col gap-4">
-              <div className="flex flex-col gap-2">
-                <Label htmlFor="name" className="font-bold">Name</Label>
-                <Input id="name" className="rounded-md" />
-              </div>
-              <div className="flex flex-col gap-2">
-                <Label htmlFor="email" className="font-bold">Email</Label>
-                <Input id="email" className="rounded-md" />
-              </div>
-              <div className="flex flex-col gap-2">
-                <Label htmlFor="phone_number" className="font-bold">Phone Number</Label>
-                <Input id="phone_number" className="rounded-md" />
-              </div>
-              <div className="flex flex-col gap-2">
-                <Label htmlFor="company_name" className="font-bold">Company Name</Label>
-                <Input id="company_name" className="rounded-md" />
-              </div>
-              <div className="flex flex-col gap-2">
-                <Label htmlFor="location" className="font-bold">Location</Label>
-                <Input id="location" className="rounded-md" />
-              </div>
-            </div>
-            <SheetFooter>
-              <SheetClose className="flex flex-col w-full gap-2">
-                Register
-              </SheetClose>
-            </SheetFooter>
-          </SheetContent>
-        </Sheet>
+          </TooltipTrigger>
+          <TooltipContent>
+            <p>just wait</p>
+          </TooltipContent>
+        </Tooltip>
       </div>
       <div className="min-w-[50vw]">
         <div className="flex items-center justify-center h-full">
