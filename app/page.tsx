@@ -1,4 +1,4 @@
-import { AboutJapanDayHack } from "@/about_japan_day_hack";
+import { AboutJapanDayHack } from "./about_japan_day_hack";
 import { AboutTSLAS } from "./about_tslas";
 import { Hero } from "./hero";
 import { Navbar } from "./navbar";

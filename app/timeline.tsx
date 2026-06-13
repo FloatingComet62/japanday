@@ -24,7 +24,7 @@ const events = [
 export function Timeline() {
   return (
     <div id="timeline" className="py-24 flex flex-col items-center gap-4">
-    <div className="text-6xl font-bold">Timeline</div>
+    <div className="text-8xl font-bold">Timeline</div>
       {events.map((event, index) => (
         <Glass key={event.title} variant="frost" className="p-4 w-[50vw]">
           <motion.div
@@ -41,15 +41,15 @@ export function Timeline() {
             }}
             className="relative flex flex-col"
           >
-            <p className="text-sm text-zinc-400">
+            <p className="text-lg text-zinc-400">
               {event.year}
             </p>
 
-            <h3 className="mt-1 text-2xl font-semibold">
+            <h3 className="mt-1 text-4xl font-semibold">
               {event.title}
             </h3>
 
-            <p className="mt-2 text-zinc-500">
+            <p className="mt-2 text-xl text-zinc-500">
               {event.description}
             </p>
           </motion.div>
