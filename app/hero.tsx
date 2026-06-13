@@ -1,28 +1,44 @@
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { TooltipContent, Tooltip, TooltipTrigger } from "@/components/ui/tooltip";
+import { Logo } from "@/components/logo";
+import { PartnerButton } from "@/components/partner-button";
 
 export function Hero() {
   return (
-    <div className="flex w-full justify-between pl-24 pr-24 pt-2 min-h-[80vh] mb-[20vh]">
-      <div className="h-full m-auto flex flex-col gap-6">
-        <div className="text-3xl">
-          <span className="text-6xl text-orange font-bold mr-2">HACKATHON NAME HERE</span>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id ullamcorper ex, ut vehicula quam. Nunc quam odio, lacinia quis est vel, varius convallis dolor. 
+    <section className="relative min-h-[80vh] flex items-center bg-pattern overflow-hidden px-margin-mobile md:px-margin-desktop">
+      <div className="absolute inset-0 bg-gradient-to-br from-surface-container-lowest/80 to-surface-container-low/50 z-0" />
+
+      <div className="max-w-[1280px] mx-auto relative z-10 grid grid-cols-1 md:grid-cols-12 gap-gutter w-full">
+        <div className="md:col-span-8 flex flex-col justify-center">
+          <span className="font-label-caps text-label-caps text-faint uppercase tracking-widest mb-6 block">
+            Annual Innovation Summit
+          </span>
+          <h1 className="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-6 leading-tight">
+            Japan Day Hack
+          </h1>
+          <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mb-10 border-l-4 border-primary pl-6 py-2">
+            Where Japanese industry meets student innovation. Bridging
+            traditional corporate excellence with high-energy technical talent.
+          </p>
+          <div className="flex flex-wrap gap-4">
+            <PartnerButton className="px-8 py-4 ambient-shadow" />
+            <Button
+              asChild
+              variant="outline"
+              className="h-auto rounded-[2px] border-on-secondary-fixed bg-transparent px-8 py-4 text-button font-button text-on-secondary-fixed hover:bg-surface-container-highest"
+            >
+              <Link href="/problem-statements">View Challenges</Link>
+            </Button>
+          </div>
         </div>
-       <Tooltip>
-          <TooltipTrigger asChild>
-            <Button className="w-full text-4xl p-12">Register Now</Button>
-          </TooltipTrigger>
-          <TooltipContent>
-            <p>just wait</p>
-          </TooltipContent>
-        </Tooltip>
-      </div>
-      <div className="min-w-[50vw]">
-        <div className="flex items-center justify-center h-full">
-        LOGO GOES HERE
+
+        <div className="hidden md:flex md:col-span-4 items-center justify-center">
+          <Logo className="w-64 h-64" />
         </div>
       </div>
-    </div>
-  )
+
+      {/* Red accent circle behind text */}
+      <div className="absolute -right-64 -top-64 w-[800px] h-[800px] bg-primary/5 rounded-full blur-3xl z-0 pointer-events-none" />
+    </section>
+  );
 }

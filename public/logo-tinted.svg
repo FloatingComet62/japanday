@@ -1,0 +1,20 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Subtle Lighting Red Tint Background -->
+  <rect width="200" height="200" fill="#BC002D" fill-opacity="0.03" rx="40"/>
+  
+  <!-- Circular Sun / Tech Motif -->
+  <circle cx="100" cy="85" r="45" fill="#BC002D" fill-opacity="0.1" />
+  <circle cx="100" cy="85" r="35" fill="#BC002D" />
+  
+  <!-- Torii Gate / Circuit Motif -->
+  <path d="M60 140 L140 140" stroke="#1B1B1B" stroke-width="8" stroke-linecap="round"/>
+  <path d="M50 120 L150 120" stroke="#1B1B1B" stroke-width="8" stroke-linecap="round"/>
+  <path d="M75 120 L75 160" stroke="#1B1B1B" stroke-width="8" stroke-linecap="round"/>
+  <path d="M125 120 L125 160" stroke="#1B1B1B" stroke-width="8" stroke-linecap="round"/>
+  
+  <!-- Subtle Circuit Lines -->
+  <path d="M100 50 L100 35" stroke="#BC002D" stroke-width="2" />
+  <circle cx="100" cy="32" r="2" fill="#BC002D" />
+  <path d="M135 65 L145 55" stroke="#BC002D" stroke-width="2" />
+  <circle cx="148" cy="52" r="2" fill="#BC002D" />
+</svg>
