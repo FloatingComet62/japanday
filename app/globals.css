@@ -258,6 +258,30 @@
   background-position: center center;
 }
 
+/* Frosted glass form panel */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(224, 224, 224, 0.5);
+}
+
+/* Minimal underline form inputs */
+.form-input-minimal {
+  border: none;
+  border-bottom: 2px solid #e0e0e0;
+  background: transparent;
+  border-radius: 0;
+  padding-left: 0;
+  padding-right: 0;
+  transition: border-color 0.3s ease;
+}
+.form-input-minimal:focus {
+  outline: none;
+  box-shadow: none;
+  border-bottom-color: #8f0020; /* primary crimson */
+}
+
 /* Finer Swiss grid background (sponsor bento) */
 .swiss-grid-bg {
   background-size: 64px 64px;

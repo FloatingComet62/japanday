@@ -4,8 +4,8 @@ import { useState } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { MenuIcon } from "lucide-react"
-import { Button } from "@/components/ui/button"
 import { Logo } from "@/components/logo"
+import { PartnerButton } from "@/components/partner-button"
 
 const links = [
   { label: "Home", href: "/" },
@@ -52,9 +52,7 @@ export function Navbar() {
           ))}
         </div>
 
-        <Button className="hidden md:inline-flex h-auto rounded-[2px] bg-primary-container px-6 py-3 text-button font-button text-on-primary hover:bg-primary active:scale-95">
-          Partner with us
-        </Button>
+        <PartnerButton className="hidden md:inline-flex px-6 py-3 active:scale-95" />
 
         {/* Mobile menu toggle */}
         <button

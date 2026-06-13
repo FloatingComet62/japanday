@@ -1,5 +1,7 @@
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Logo } from "@/components/logo";
+import { PartnerButton } from "@/components/partner-button";
 
 export function Hero() {
   return (
@@ -19,14 +21,13 @@ export function Hero() {
             traditional corporate excellence with high-energy technical talent.
           </p>
           <div className="flex flex-wrap gap-4">
-            <Button className="h-auto rounded-[2px] bg-primary-container px-8 py-4 text-button font-button text-on-primary hover:bg-primary ambient-shadow">
-              Partner with us
-            </Button>
+            <PartnerButton className="px-8 py-4 ambient-shadow" />
             <Button
+              asChild
               variant="outline"
               className="h-auto rounded-[2px] border-on-secondary-fixed bg-transparent px-8 py-4 text-button font-button text-on-secondary-fixed hover:bg-surface-container-highest"
             >
-              View Challenges
+              <Link href="/problem-statements">View Challenges</Link>
             </Button>
           </div>
         </div>
