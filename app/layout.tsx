@@ -4,6 +4,9 @@ import './globals.css'
 import { cn } from "@/lib/utils";
 import { TooltipProvider } from '@/components/ui/tooltip';
 import { Toaster } from '@/components/ui/sonner';
+import { Button } from '@/components/ui/button';
+import { Navbar } from './navbar';
+import { Footer } from './footer';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
 
@@ -50,7 +53,17 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col text-on-background font-body-md antialiased relative bg-gradient-to-br from-primary/5 to-surface-container-lowest">
       <TooltipProvider>
+        <Navbar />
         {children}
+        <Footer />
+
+        {/* Sticky Partner CTA for mobile */}
+        <div className="fixed bottom-0 left-0 w-full bg-surface-container-lowest border-t border-outline-variant/30 p-4 md:hidden z-40 shadow-[0_-4px_20px_rgba(0,0,0,0.05)]">
+          <Button className="w-full h-auto rounded-[2px] bg-primary-container px-6 py-4 text-button font-button text-on-primary hover:bg-primary">
+            Partner with us
+          </Button>
+        </div>
+
         <Toaster />
       </TooltipProvider>
       </body>
