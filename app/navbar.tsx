@@ -1,8 +1,10 @@
 "use client"
 
+import { Glass } from "@/components/glass"
+
 export function Navbar() {
   return (
-    <div className="flex w-full justify-between pl-6 pr-6 pt-2 h-[20vh]">
+    <Glass variant="frost" className="flex-row w-full items-center justify-between pl-4 pr-4 h-[5vh] !rounded-none">
       <div>LOGO</div>
       <div className="flex gap-4">
         <div onClick={() => document.getElementById("timeline")?.scrollIntoView({ behavior: 'smooth'})}>Timeline</div>
@@ -11,6 +13,6 @@ export function Navbar() {
         <div onClick={() => document.getElementById("partner")?.scrollIntoView({ behavior: 'smooth'})}>Partner</div>
         <div onClick={() => document.getElementById("content")?.scrollIntoView({ behavior: 'smooth'})}>Content</div>
       </div>
-    </div>
+    </Glass>
   )
 }
