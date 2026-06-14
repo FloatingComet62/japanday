@@ -11,7 +11,6 @@ const fadeUp = {
 export default function ProblemStatementsPage() {
   return (
     <main className="flex-grow pt-[120px] pb-section-gap flex items-center justify-center relative overflow-hidden">
-      {/* Subtle background accent */}
       <div
         className="absolute inset-0 pointer-events-none opacity-20"
         style={{
@@ -22,7 +21,6 @@ export default function ProblemStatementsPage() {
 
       <div className="w-full max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop">
         <div className="max-w-3xl mx-auto text-center flex flex-col items-center">
-          {/* Graphic */}
           <motion.div
             {...fadeUp}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
@@ -33,7 +31,6 @@ export default function ProblemStatementsPage() {
             <LightbulbIcon className="size-16 text-primary" />
           </motion.div>
 
-          {/* Typography */}
           <motion.h1
             {...fadeUp}
             transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
@@ -51,7 +48,6 @@ export default function ProblemStatementsPage() {
             precision, innovation, and global foresight.
           </motion.p>
 
-          {/* Status */}
           <motion.div
             {...fadeUp}
             transition={{ duration: 0.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}

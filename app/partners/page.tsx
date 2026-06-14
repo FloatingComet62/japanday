@@ -17,11 +17,9 @@ const fadeUp = {
 export default function ParntersPage() {
   return (
     <main className="flex-grow pt-32 pb-section-gap relative overflow-hidden">
-      {/* Subtle ambient background element */}
       <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-bl from-primary-container/5 to-transparent -z-10 pointer-events-none" />
 
       <div className="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop">
-        {/* Header */}
         <motion.header
           {...fadeUp}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
@@ -41,13 +39,11 @@ export default function ParntersPage() {
           </p>
         </motion.header>
 
-        {/* Partners grid */}
         <motion.section
           {...fadeUp}
           transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
         >
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter swiss-grid-bg p-8 rounded-lg border border-outline-variant/20 bg-surface-container-lowest/50 backdrop-blur-sm shadow-[0_10px_30px_rgba(0,0,0,0.04)]">
-            {/* Placeholder card 1 */}
             <div className="aspect-square bg-surface-container-lowest border border-outline-variant/30 rounded flex flex-col items-center justify-center relative overflow-hidden group hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(0,0,0,0.08)] transition-all duration-300">
               <div className="absolute inset-0 bg-gradient-to-br from-transparent to-surface-variant/20 opacity-0 group-hover:opacity-100 transition-opacity" />
               <Building2Icon className="size-12 text-outline-variant mb-4 group-hover:text-primary-container transition-colors duration-500" />
@@ -59,7 +55,6 @@ export default function ParntersPage() {
               </div>
             </div>
 
-            {/* Placeholder card 2 */}
             <div className="aspect-square bg-surface-container-lowest border border-outline-variant/30 rounded flex flex-col items-center justify-center relative overflow-hidden group hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(0,0,0,0.08)] transition-all duration-300">
               <div className="absolute inset-0 bg-gradient-to-br from-transparent to-surface-variant/20 opacity-0 group-hover:opacity-100 transition-opacity" />
               <LandmarkIcon className="size-12 text-outline-variant mb-4 group-hover:text-primary-container transition-colors duration-500" />
@@ -68,7 +63,6 @@ export default function ParntersPage() {
               </p>
             </div>
 
-            {/* Placeholder card 3 (CTA) */}
             <div className="aspect-square lg:col-span-2 bg-surface-container-lowest border border-outline-variant/30 rounded flex flex-col items-center justify-center relative overflow-hidden group hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(0,0,0,0.08)] transition-all duration-300">
               <div className="absolute inset-0 bg-gradient-to-br from-surface-variant/10 to-transparent" />
               <div className="text-center z-10 px-8">

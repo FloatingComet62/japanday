@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation"
 import { MenuIcon } from "lucide-react"
 import { Logo } from "@/components/logo"
 import { PartnerButton } from "@/components/partner-button"
+import { LanguageSwitcher } from "@/components/language-switcher"
 
 const links = [
   { label: "Home", href: "/" },
@@ -51,10 +52,10 @@ export function Navbar() {
             </Link>
           ))}
         </div>
-
+        
+        <LanguageSwitcher />
         <PartnerButton className="hidden md:inline-flex px-6 py-3 active:scale-95" />
 
-        {/* Mobile menu toggle */}
         <button
           className="md:hidden text-on-surface"
           aria-label="Toggle menu"
@@ -65,7 +66,6 @@ export function Navbar() {
         </button>
       </div>
 
-      {/* Mobile menu panel */}
       {open && (
         <div className="md:hidden border-t border-outline-variant/30 bg-surface/95 backdrop-blur-md px-margin-mobile py-4 flex flex-col gap-4">
           {links.map((link) => (

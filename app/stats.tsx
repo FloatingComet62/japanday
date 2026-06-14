@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "motion/react";
+import { useT } from "next-i18next/client";
 
 type Stat = {
   target: number;
@@ -10,17 +11,12 @@ type Stat = {
   label: string;
 };
 
-const stats: Stat[] = [
-  { target: 500, label: "Participants" },
-  { target: 48, suffix: "h", label: "Hours" }, // harshjyot, idhar "h" ko "H" karna hai
-  { target: 20, suffix: "+", label: "Industry Problems" },
-  { target: 2024, prefix: "Mar ", label: "Event Date" },
-];
-
 function Counter({ target, prefix = "", suffix = "" }: Stat) {
+  const { i18n } = useT();
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, amount: 0.3 });
   const [value, setValue] = useState(0);
+  const formatNumber = (value: number) => new Intl.NumberFormat(i18n.language).format(value);
 
   useEffect(() => {
     if (!inView) return;
@@ -42,13 +38,21 @@ function Counter({ target, prefix = "", suffix = "" }: Stat) {
   return (
     <span ref={ref}>
       {prefix}
-      {value}
+      {formatNumber(value)}
       {suffix}
     </span>
   );
 }
 
 export function Stats() {
+  const { t } = useT();
+  const stats = [
+    { target: 500, label: t("stats.participants") },
+    { target: 48, label: t("stats.hours") },
+    { target: 20, suffix: "+", label: t("stats.industryProblems") },
+    { target: 2024, prefix: "Mar ", label: t("stats.eventDate") },
+  ];
+
   return (
     <section className="py-20 bg-surface-container-low px-margin-mobile md:px-margin-desktop border-y border-outline-variant/30">
       <div className="max-w-[1280px] mx-auto">

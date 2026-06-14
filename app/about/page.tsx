@@ -14,59 +14,6 @@ import {
 import type { LucideIcon } from "lucide-react";
 import { Logo } from "@/components/logo";
 
-const team: { icon: LucideIcon; title: string; subtitle: string }[] = [
-  {
-    icon: UsersIcon,
-    title: "Core Committee",
-    subtitle: "Strategic Planning & Execution",
-  },
-  {
-    icon: Code2Icon,
-    title: "Technical Leads",
-    subtitle: "Infrastructure & Support",
-  },
-  {
-    icon: MegaphoneIcon,
-    title: "Outreach",
-    subtitle: "Sponsorships & PR",
-  },
-];
-
-const contactItems: {
-  icon: LucideIcon;
-  title: string;
-  body: React.ReactNode;
-}[] = [
-  {
-    icon: MapPinIcon,
-    title: "Location",
-    body: (
-      <>
-        Thapar Institute of Engineering and Technology
-        <br />
-        Bhadson Road, Patiala, Punjab 147004
-      </>
-    ),
-  },
-  {
-    icon: MailIcon,
-    title: "Email",
-    body: (
-      <a
-        href="mailto:japandayhack@thapar.edu"
-        className="text-on-surface-variant hover:text-primary transition-colors"
-      >
-        japandayhack@thapar.edu
-      </a>
-    ),
-  },
-  {
-    icon: PhoneIcon,
-    title: "Phone",
-    body: "+91 175 239 3021 (General Inquiry)",
-  },
-];
-
 const reveal = {
   initial: { opacity: 0, y: 30 },
   whileInView: { opacity: 1, y: 0 },
@@ -75,9 +22,60 @@ const reveal = {
 };
 
 export default function AboutPage() {
+  const team: { icon: LucideIcon; title: string; subtitle: string }[] = [
+    {
+      icon: UsersIcon,
+      title: "Core Committee",
+      subtitle: "Strategic Planning & Execution",
+    },
+    {
+      icon: Code2Icon,
+      title: "Technical Leads",
+      subtitle: "Infrastructure & Support",
+    },
+    {
+      icon: MegaphoneIcon,
+      title: "Outreach",
+      subtitle: "Sponsorships & PR",
+    },
+  ];
+
+  const contactItems: {
+    icon: LucideIcon;
+    title: string;
+    body: React.ReactNode;
+  }[] = [
+    {
+      icon: MapPinIcon,
+      title: "Location",
+      body: (
+        <>
+          Thapar Institute of Engineering and Technology
+          <br />
+          Bhadson Road, Patiala, Punjab 147004
+        </>
+      ),
+    },
+    {
+      icon: MailIcon,
+      title: "Email",
+      body: (
+        <a
+          href="mailto:japandayhack@thapar.edu"
+          className="text-on-surface-variant hover:text-primary transition-colors"
+        >
+          japandayhack@thapar.edu
+        </a>
+      ),
+    },
+    {
+      icon: PhoneIcon,
+      title: "Phone",
+      body: "+91 175 239 3021 (General Inquiry)",
+    },
+  ];
   return (
     <main className="pt-32 pb-section-gap px-margin-mobile md:px-margin-desktop max-w-[1280px] mx-auto space-y-section-gap">
-      {/* Hero / Intro */}
       <motion.section
         {...reveal}
         className="grid grid-cols-1 md:grid-cols-12 gap-gutter items-center min-h-[50vh]"
@@ -104,7 +102,6 @@ export default function AboutPage() {
         </div>
       </motion.section>
 
-      {/* Leadership & Team */}
       <motion.section {...reveal} className="space-y-12">
         <div className="space-y-2">
           <h2 className="font-headline-md text-headline-md text-on-surface">
@@ -114,7 +111,6 @@ export default function AboutPage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter">
-          {/* Dean profile */}
           <div className="col-span-1 md:col-span-7 bg-surface-container-lowest rounded-sm border border-outline-variant/50 ambient-shadow card-hover p-8 flex flex-col md:flex-row gap-8 items-start">
             <div className="w-32 h-32 shrink-0 rounded-full bg-surface-container-low overflow-hidden border-2 border-primary-container flex items-center justify-center">
               <UserRoundIcon className="size-16 text-outline-variant" />
@@ -142,7 +138,6 @@ export default function AboutPage() {
             </div>
           </div>
 
-          {/* Organizing team */}
           <div className="col-span-1 md:col-span-5 space-y-gutter">
             {team.map((member) => {
               const Icon = member.icon;
@@ -165,10 +160,8 @@ export default function AboutPage() {
         </div>
       </motion.section>
 
-      {/* Contact & Map */}
       <motion.section {...reveal} id="contact" className="scroll-mt-24">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-margin-desktop bg-surface-container-lowest border border-outline-variant/50 rounded-sm ambient-shadow overflow-hidden">
-          {/* Contact info */}
           <div className="p-8 md:p-12 space-y-8">
             <div>
               <h2 className="font-headline-md text-headline-md text-on-surface mb-2">
@@ -199,7 +192,6 @@ export default function AboutPage() {
             </div>
           </div>
 
-          {/* Map placeholder */}
           <div className="relative min-h-[400px] bg-surface-container-low border-l border-outline-variant/30 flex items-center justify-center">
             <div className="absolute inset-0 opacity-40 swiss-grid-bg" />
             <div

@@ -1,19 +1,12 @@
+"use client"
+
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { useT } from "next-i18next/client";
 
-/**
- * The brand "Partner with us" CTA → /partner.
- * Shared across the navbar, the mobile sticky bar, and the hero.
- * Pass `className` for placement-specific sizing/visibility.
- */
-export function PartnerButton({
-  className,
-  children = "Partner with us",
-}: {
-  className?: string;
-  children?: React.ReactNode;
-}) {
+export function PartnerButton({ className }: { className?: string; }) {
+  const { t } = useT();
   return (
     <Button
       asChild
@@ -22,7 +15,7 @@ export function PartnerButton({
         className,
       )}
     >
-      <Link href="/partner">{children}</Link>
+      <Link href="/partner">{t("partner")}</Link>
     </Button>
   );
 }

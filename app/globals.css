@@ -129,9 +129,6 @@
   }
 }
 
-/* ------------------------------------------------------------------ */
-/* Japan Day Hack design system (ported from Stitch)                  */
-/* ------------------------------------------------------------------ */
 @theme {
   /* Material-style brand palette */
   --color-surface: #f9f9f9;
@@ -182,12 +179,8 @@
   --color-error-container: #ffdad6;
   --color-on-error: #ffffff;
   --color-on-error-container: #93000a;
-
-  /* Stitch "secondary" muted text colour (kept off shadcn's --secondary) */
   --color-faint: #5f5e5e;
   --color-faint-dim: #c8c6c5;
-
-  /* Type families (wired to next/font variables in layout.tsx) */
   --font-display-lg: var(--font-hanken), "Hanken Grotesk", sans-serif;
   --font-display-lg-mobile: var(--font-hanken), "Hanken Grotesk", sans-serif;
   --font-headline-md: var(--font-hanken), "Hanken Grotesk", sans-serif;
@@ -196,8 +189,6 @@
   --font-body-md: var(--font-sans), "Inter", sans-serif;
   --font-button: var(--font-sans), "Inter", sans-serif;
   --font-label-caps: var(--font-jetbrains), "JetBrains Mono", monospace;
-
-  /* Type scale */
   --text-display-lg: 72px;
   --text-display-lg--line-height: 1.1;
   --text-display-lg--letter-spacing: -0.04em;
@@ -227,8 +218,6 @@
   --text-label-caps--line-height: 1;
   --text-label-caps--letter-spacing: 0.1em;
   --text-label-caps--font-weight: 500;
-
-  /* Spacing tokens (Swiss grid rhythm) */
   --spacing-margin-desktop: 64px;
   --spacing-margin-mobile: 16px;
   --spacing-section-gap: 120px;
@@ -236,7 +225,6 @@
   --spacing-unit: 8px;
 }
 
-/* Decorative helpers from the Stitch design */
 .ambient-shadow {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
 }
@@ -249,7 +237,6 @@
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
 }
 
-/* Tech-Japanese motif grid background */
 .bg-pattern {
   background-image:
     linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
@@ -258,7 +245,6 @@
   background-position: center center;
 }
 
-/* Frosted glass form panel */
 .glass-panel {
   background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(20px);
@@ -266,7 +252,6 @@
   border: 1px solid rgba(224, 224, 224, 0.5);
 }
 
-/* Minimal underline form inputs */
 .form-input-minimal {
   border: none;
   border-bottom: 2px solid #e0e0e0;
@@ -279,10 +264,9 @@
 .form-input-minimal:focus {
   outline: none;
   box-shadow: none;
-  border-bottom-color: #8f0020; /* primary crimson */
+  border-bottom-color: #8f0020;
 }
 
-/* Finer Swiss grid background (sponsor bento) */
 .swiss-grid-bg {
   background-size: 64px 64px;
   background-image:
@@ -290,7 +274,6 @@
     linear-gradient(to bottom, rgba(226, 226, 226, 0.3) 1px, transparent 1px);
 }
 
-/* Vertical timeline spine */
 .timeline-line {
   width: 2px;
   background-color: var(--color-outline-variant);

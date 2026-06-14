@@ -22,50 +22,6 @@ type Milestone = {
   tags?: string[]
 }
 
-const milestones: Milestone[] = [
-  {
-    phase: 'Phase 01',
-    title: 'Company Onboarding',
-    description:
-      'Japanese industry partners come aboard, define their tracks, and submit the real-world problem statements that teams will tackle.',
-    date: 'Jun 18 – Aug 10',
-    dateSub: 'Partner Intake',
-    icon: BriefcaseIcon,
-    side: 'card-left',
-  },
-  {
-    phase: 'Phase 02',
-    title: 'Participant Team Registration',
-    description:
-      'Applications open to students. Form your team, pick your track, and lock in your place in the hackathon.',
-    date: 'Aug 15 – Oct 5',
-    dateSub: 'Applications Open',
-    icon: UserCheckIcon,
-    side: 'card-right',
-  },
-  {
-    phase: 'Phase 03',
-    title: 'Internal Shortlisting',
-    description:
-      'Submissions are reviewed and the most promising teams are shortlisted to advance to the main event.',
-    date: 'Oct 15',
-    dateSub: 'Selection Day',
-    icon: ListChecksIcon,
-    side: 'card-left',
-  },
-  {
-    phase: 'Core Event',
-    title: 'Hackathon',
-    description:
-      'Two days of intense building, mentorship, and final pitches to a panel of industry judges. Winners and internship offers announced.',
-    date: 'Oct 24–25',
-    dateSub: 'Grand Finale',
-    icon: TerminalIcon,
-    side: 'card-right',
-    featured: true,
-  },
-]
-
 function Card({ milestone }: { milestone: Milestone }) {
   return (
     <div
@@ -198,9 +154,51 @@ function MilestoneRow({
 }
 
 export default function TimelinePage() {
+  const milestones: Milestone[] = [
+    {
+      phase: 'Phase 01',
+      title: 'Company Onboarding',
+      description:
+        'Japanese industry partners come aboard, define their tracks, and submit the real-world problem statements that teams will tackle.',
+      date: 'Jun 18 – Aug 10',
+      dateSub: 'Partner Intake',
+      icon: BriefcaseIcon,
+      side: 'card-left',
+    },
+    {
+      phase: 'Phase 02',
+      title: 'Participant Team Registration',
+      description:
+        'Applications open to students. Form your team, pick your track, and lock in your place in the hackathon.',
+      date: 'Aug 15 – Oct 5',
+      dateSub: 'Applications Open',
+      icon: UserCheckIcon,
+      side: 'card-right',
+    },
+    {
+      phase: 'Phase 03',
+      title: 'Internal Shortlisting',
+      description:
+        'Submissions are reviewed and the most promising teams are shortlisted to advance to the main event.',
+      date: 'Oct 15',
+      dateSub: 'Selection Day',
+      icon: ListChecksIcon,
+      side: 'card-left',
+    },
+    {
+      phase: 'Core Event',
+      title: 'Hackathon',
+      description:
+        'Two days of intense building, mentorship, and final pitches to a panel of industry judges. Winners and internship offers announced.',
+      date: 'Oct 24–25',
+      dateSub: 'Grand Finale',
+      icon: TerminalIcon,
+      side: 'card-right',
+      featured: true,
+    },
+  ];
   return (
     <main className="flex-grow pt-32 pb-section-gap px-margin-mobile md:px-margin-desktop max-w-[1280px] mx-auto w-full">
-      {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -221,7 +219,6 @@ export default function TimelinePage() {
         </p>
       </motion.div>
 
-      {/* Timeline */}
       <div className="relative w-full max-w-5xl mx-auto py-12">
         <div className="timeline-line hidden md:block" />
         {milestones.map((milestone, index) => (
@@ -231,7 +228,6 @@ export default function TimelinePage() {
             last={index === milestones.length - 1}
           />
         ))}
-        {/* Bottom cap for mobile line */}
         <div
           className="timeline-line md:hidden !bottom-auto !h-full"
           style={{ zIndex: -1 }}

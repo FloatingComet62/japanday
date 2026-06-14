@@ -3,33 +3,13 @@
 import { motion } from "motion/react";
 import { BriefcaseIcon, HardHatIcon, UsersIcon } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import { useT } from "next-i18next/client";
 
 type Pillar = {
   icon: LucideIcon;
   title: string;
   description: string;
 };
-
-const pillars: Pillar[] = [
-  {
-    icon: BriefcaseIcon,
-    title: "Real Problems",
-    description:
-      "Sponsors submit operational challenges directly from their factory floors or management systems, seeking innovative, scalable solutions.",
-  },
-  {
-    icon: HardHatIcon,
-    title: "Top Talent",
-    description:
-      "Access to Thapar Institute's best engineers. A curated environment where raw technical ability meets disciplined problem-solving.",
-  },
-  {
-    icon: UsersIcon,
-    title: "Hiring Pipeline",
-    description:
-      "Direct internships and recruitment opportunities. Evaluate potential candidates based on practical performance under pressure, not just resumes.",
-  },
-];
 
 const reveal = {
   initial: { opacity: 0, y: 40 },
@@ -38,6 +18,24 @@ const reveal = {
 };
 
 export function About() {
+  const { t } = useT();
+  const pillars: Pillar[] = [
+    {
+      icon: BriefcaseIcon,
+      title: t("about.pillar1.title"),
+      description: t("about.pillar1.description"),
+    },
+    {
+      icon: HardHatIcon,
+      title: t("about.pillar2.title"),
+      description: t("about.pillar2.description"),
+    },
+    {
+      icon: UsersIcon,
+      title: t("about.pillar3.title"),
+      description: t("about.pillar3.description"),
+    },
+  ];
   return (
     <section className="py-section-gap px-margin-mobile md:px-margin-desktop bg-surface-container-lowest">
       <div className="max-w-[1280px] mx-auto">
@@ -47,12 +45,10 @@ export function About() {
           className="mb-16 md:w-1/2"
         >
           <h2 className="font-headline-md text-headline-md text-on-surface mb-4">
-            Strategic Value
+            {t("about.strategicvalue")}
           </h2>
           <p className="font-body-lg text-body-lg text-on-surface-variant">
-            Connecting theoretical knowledge with practical industry
-            application. Our three-pillar approach ensures value for both
-            sponsors and participants.
+            {t("about.strategicdescription")}
           </p>
         </motion.div>
 

@@ -15,33 +15,6 @@ import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Logo } from "@/components/logo";
 
-const benefits: { icon: LucideIcon; title: string; description: string }[] = [
-  {
-    icon: LightbulbIcon,
-    title: "Submit Problems",
-    description:
-      "Present your industry challenges directly to ambitious student teams.",
-  },
-  {
-    icon: GavelIcon,
-    title: "Judge Solutions",
-    description: "Evaluate innovative approaches and provide expert feedback.",
-  },
-  {
-    icon: BriefcaseIcon,
-    title: "Offer Internships",
-    description:
-      "Identify and recruit outstanding participants for your organization.",
-  },
-];
-
-const interests = [
-  "Technology & AI",
-  "Sustainability",
-  "Finance/Fintech",
-  "Robotics/Mfg.",
-];
-
 const fadeUp = {
   initial: { opacity: 0, y: 30 },
   whileInView: { opacity: 1, y: 0 },
@@ -49,6 +22,32 @@ const fadeUp = {
 };
 
 export default function PartnerPage() {
+  const benefits: { icon: LucideIcon; title: string; description: string }[] = [
+    {
+      icon: LightbulbIcon,
+      title: "Submit Problems",
+      description:
+        "Present your industry challenges directly to ambitious student teams.",
+    },
+    {
+      icon: GavelIcon,
+      title: "Judge Solutions",
+      description: "Evaluate innovative approaches and provide expert feedback.",
+    },
+    {
+      icon: BriefcaseIcon,
+      title: "Offer Internships",
+      description:
+        "Identify and recruit outstanding participants for your organization.",
+    },
+  ];
+
+  const interests = [
+    "Technology & AI",
+    "Sustainability",
+    "Finance/Fintech",
+    "Robotics/Mfg.",
+  ];
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     toast.success("Partnership request submitted", {
@@ -61,7 +60,6 @@ export default function PartnerPage() {
 
   return (
     <main className="pt-32 pb-section-gap px-margin-mobile md:px-margin-desktop max-w-[1280px] mx-auto">
-      {/* Hero explainer */}
       <motion.section
         {...fadeUp}
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
@@ -100,7 +98,6 @@ export default function PartnerPage() {
           </div>
         </div>
 
-        {/* Branded visual */}
         <div className="relative hidden md:block">
           <div className="aspect-square bg-surface-container-low rounded-xl overflow-hidden relative ambient-shadow flex items-center justify-center">
             <Logo className="w-2/3 h-2/3" />
@@ -109,7 +106,6 @@ export default function PartnerPage() {
         </div>
       </motion.section>
 
-      {/* Partnership form */}
       <motion.section
         {...fadeUp}
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
@@ -126,7 +122,6 @@ export default function PartnerPage() {
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-8">
-            {/* Basic info */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div>
                 <Label
@@ -189,7 +184,6 @@ export default function PartnerPage() {
               </div>
             </div>
 
-            {/* Areas of interest */}
             <div className="pt-4">
               <Label className="font-label-caps text-label-caps text-faint uppercase mb-4">
                 Areas of Interest for Problem Statements
@@ -211,7 +205,6 @@ export default function PartnerPage() {
               </div>
             </div>
 
-            {/* Internship slots */}
             <div className="pt-4">
               <Label
                 htmlFor="internships"
@@ -235,7 +228,6 @@ export default function PartnerPage() {
               </div>
             </div>
 
-            {/* Message */}
             <div className="pt-4">
               <Label
                 htmlFor="message"
@@ -251,7 +243,6 @@ export default function PartnerPage() {
               />
             </div>
 
-            {/* Submit */}
             <div className="pt-8 flex justify-end">
               <Button
                 type="submit"
