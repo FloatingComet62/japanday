@@ -7,13 +7,13 @@ import {
   GavelIcon,
   LightbulbIcon,
 } from "lucide-react";
-import type { LucideIcon } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Logo } from "@/components/logo";
+import { useT } from "next-i18next/client";
 
 const fadeUp = {
   initial: { opacity: 0, y: 30 },
@@ -22,37 +22,29 @@ const fadeUp = {
 };
 
 export default function PartnerPage() {
-  const benefits: { icon: LucideIcon; title: string; description: string }[] = [
-    {
-      icon: LightbulbIcon,
-      title: "Submit Problems",
-      description:
-        "Present your industry challenges directly to ambitious student teams.",
-    },
-    {
-      icon: GavelIcon,
-      title: "Judge Solutions",
-      description: "Evaluate innovative approaches and provide expert feedback.",
-    },
-    {
-      icon: BriefcaseIcon,
-      title: "Offer Internships",
-      description:
-        "Identify and recruit outstanding participants for your organization.",
-    },
-  ];
+  const { t } = useT();
+  const benefitsIcon = [
+    LightbulbIcon,
+    GavelIcon,
+    BriefcaseIcon,
+  ]
+  const benefits: { title: string; description: string }[] = [];
+  for (let i = 1; i <= 3; i++) {
+    benefits.push({
+      title: t(`partner.item${i}.title`),
+      description: t(`partner.item${i}.description`),
+    });
+  }
 
-  const interests = [
-    "Technology & AI",
-    "Sustainability",
-    "Finance/Fintech",
-    "Robotics/Mfg.",
-  ];
+  const interests = [];
+  for (let i = 1; i <= 4; i++) {
+    interests.push(t(`partner.interests.item${i}`));
+  }
+
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    toast.success("Partnership request submitted", {
-      description:
-        "Our corporate relations team will contact you shortly.",
+    toast.success(t("partner.requestsent"), {
+      description: t("partner.requestsent.description"),
       descriptionClassName: "!text-red-400",
     });
     e.currentTarget.reset();
@@ -67,18 +59,16 @@ export default function PartnerPage() {
       >
         <div>
           <h1 className="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-6">
-            Empower the Next <br />
-            <span className="text-primary">Generation.</span>
+            {t("partner.empowerthenext")} <br />
+            <span className="text-primary">{t("partner.generation")}</span>
           </h1>
           <p className="font-body-lg text-body-lg text-faint mb-8 max-w-lg">
-            Join forces with the brightest young minds at Japan Day Hack. We
-            invite industry leaders to collaborate, mentor, and discover
-            top-tier talent ready to solve real-world challenges.
+            {t("partner.description")}
           </p>
 
           <div className="space-y-6">
-            {benefits.map((benefit) => {
-              const Icon = benefit.icon;
+            {benefits.map((benefit, i) => {
+              const Icon = benefitsIcon[i];
               return (
                 <div key={benefit.title} className="flex items-start gap-4">
                   <div className="bg-surface-container-low p-3 rounded-full text-primary">
@@ -113,11 +103,10 @@ export default function PartnerPage() {
         <div className="glass-panel rounded-xl p-8 md:p-12 ambient-shadow max-w-4xl mx-auto">
           <div className="mb-10 text-center md:text-left border-b border-surface-variant pb-6">
             <h2 className="font-headline-md text-headline-md text-on-surface mb-2">
-              Partnership Request
+              {t("partner.request")}
             </h2>
             <p className="font-body-md text-body-md text-faint">
-              Fill out the form below and our corporate relations team will
-              contact you shortly.
+              {t("partner.request.description")}
             </p>
           </div>
 
@@ -128,7 +117,7 @@ export default function PartnerPage() {
                   htmlFor="companyName"
                   className="font-label-caps text-label-caps text-faint uppercase mb-2"
                 >
-                  Company Name
+                  {t("partner.form.companyName")}
                 </Label>
                 <input
                   id="companyName"
@@ -143,7 +132,7 @@ export default function PartnerPage() {
                   htmlFor="contactPerson"
                   className="font-label-caps text-label-caps text-faint uppercase mb-2"
                 >
-                  Contact Person &amp; Designation
+                  {t("partner.form.contactPerson")}
                 </Label>
                 <input
                   id="contactPerson"
@@ -158,7 +147,7 @@ export default function PartnerPage() {
                   htmlFor="email"
                   className="font-label-caps text-label-caps text-faint uppercase mb-2"
                 >
-                  Corporate Email
+                  {t("partner.form.coopemail")}
                 </Label>
                 <input
                   id="email"
@@ -173,7 +162,7 @@ export default function PartnerPage() {
                   htmlFor="phone"
                   className="font-label-caps text-label-caps text-faint uppercase mb-2"
                 >
-                  Phone Number
+                  {t("partner.form.phone")}
                 </Label>
                 <input
                   id="phone"
@@ -186,7 +175,7 @@ export default function PartnerPage() {
 
             <div className="pt-4">
               <Label className="font-label-caps text-label-caps text-faint uppercase mb-4">
-                Areas of Interest for Problem Statements
+                {t("partner.aeo")}
               </Label>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 {interests.map((interest) => {
@@ -210,7 +199,7 @@ export default function PartnerPage() {
                 htmlFor="internships"
                 className="font-label-caps text-label-caps text-faint uppercase mb-2"
               >
-                Internship Slots Offered (Optional)
+                {t("partner.iso")}
               </Label>
               <div className="relative">
                 <select
@@ -219,10 +208,10 @@ export default function PartnerPage() {
                   className="w-full form-input-minimal font-body-lg text-body-lg text-on-surface pb-2 bg-transparent appearance-none cursor-pointer pr-8"
                   defaultValue="0"
                 >
-                  <option value="0">None currently</option>
-                  <option value="1-3">1 - 3 Slots</option>
-                  <option value="4-10">4 - 10 Slots</option>
-                  <option value="10+">10+ Slots</option>
+                  <option value="0">{t("partner.iso.item1")}</option>
+                  <option value="1-3">{t("partner.iso.item2")}</option>
+                  <option value="4-10">{t("partner.iso.item3")}</option>
+                  <option value="10+">{t("partner.iso.item4")}</option>
                 </select>
                 <ChevronDownIcon className="size-4 text-faint absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none" />
               </div>
@@ -233,7 +222,7 @@ export default function PartnerPage() {
                 htmlFor="message"
                 className="font-label-caps text-label-caps text-faint uppercase mb-2"
               >
-                Message / Specific Requirements
+                {t("partner.message")}
               </Label>
               <Textarea
                 id="message"
@@ -248,7 +237,7 @@ export default function PartnerPage() {
                 type="submit"
                 className="h-auto rounded-[2px] bg-primary-container px-8 py-4 text-button font-button text-on-primary hover:bg-primary w-full md:w-auto shadow-sm hover:shadow-md"
               >
-                Submit Partnership Request
+                {t("partner.submit")}
               </Button>
             </div>
           </form>

@@ -7,15 +7,7 @@ import { MenuIcon } from "lucide-react"
 import { Logo } from "@/components/logo"
 import { PartnerButton } from "@/components/partner-button"
 import { LanguageSwitcher } from "@/components/language-switcher"
-
-const links = [
-  { label: "Home", href: "/" },
-  { label: "Timeline", href: "/timeline" },
-  { label: "Problem Statements", href: "/problem-statements" },
-  { label: "Partners", href: "/partners" },
-  { label: "About", href: "/about" },
-  { label: "Contact", href: "/about#contact" },
-]
+import { useT } from "next-i18next/client"
 
 function isActive(pathname: string, href: string) {
   if (href === "#") return false
@@ -24,8 +16,18 @@ function isActive(pathname: string, href: string) {
 }
 
 export function Navbar() {
+  const { t } = useT();
   const pathname = usePathname()
   const [open, setOpen] = useState(false)
+
+  const links = [
+    { label: t("home"), href: "/" },
+    { label: t("timeline"), href: "/timeline" },
+    { label: t("problem_statements"), href: "/problem-statements" },
+    { label: t("partners"), href: "/partners" },
+    { label: t("about"), href: "/about" },
+    { label: t("contact"), href: "/about#contact" },
+  ]
 
   return (
     <nav className="bg-surface/80 backdrop-blur-md border-b border-outline-variant/30 fixed top-0 w-full z-50 shadow-sm transition-transform duration-300">
@@ -62,7 +64,7 @@ export function Navbar() {
           onClick={() => setOpen((v) => !v)}
         >
           <MenuIcon />
-          <span className="sr-only">Menu</span>
+          <span className="sr-only">{t("menu")}</span>
         </button>
       </div>
 

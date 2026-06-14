@@ -9,6 +9,7 @@ import {
 } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import { useT } from 'next-i18next/client'
 
 type Milestone = {
   phase: string
@@ -16,10 +17,9 @@ type Milestone = {
   description: string
   date: string
   dateSub: string
-  icon: LucideIcon
   side: 'card-left' | 'card-right'
-  featured?: boolean
-  tags?: string[]
+  featured: boolean
+  // tags?: string[]
 }
 
 function Card({ milestone }: { milestone: Milestone }) {
@@ -49,7 +49,7 @@ function Card({ milestone }: { milestone: Milestone }) {
       <p className="font-body-md text-body-md text-on-surface-variant">
         {milestone.description}
       </p>
-      {milestone.tags && (
+      {/*milestone.tags && (
         <div className="mt-4 flex gap-2">
           {milestone.tags.map((tag) => (
             <span
@@ -60,7 +60,7 @@ function Card({ milestone }: { milestone: Milestone }) {
             </span>
           ))}
         </div>
-      )}
+      )*/}
     </div>
   )
 }
@@ -83,8 +83,7 @@ function DateBlock({ milestone }: { milestone: Milestone }) {
   )
 }
 
-function Node({ milestone }: { milestone: Milestone }) {
-  const Icon = milestone.icon
+function Node({ milestone, icon: Icon }: { milestone: Milestone, icon: LucideIcon }) {
   return (
     <div className="absolute left-6 md:left-1/2 -translate-x-1/2 flex items-center justify-center z-10">
       <div
@@ -109,9 +108,11 @@ function Node({ milestone }: { milestone: Milestone }) {
 
 function MilestoneRow({
   milestone,
+  icon,
   last,
 }: {
   milestone: Milestone
+  icon: LucideIcon
   last: boolean
 }) {
   const cardLeft = milestone.side === 'card-left'
@@ -147,56 +148,32 @@ function MilestoneRow({
       )}
     >
       {cardLeft ? cardBlock : dateBlock}
-      <Node milestone={milestone} />
+      <Node milestone={milestone} icon={icon} />
       {cardLeft ? dateBlock : cardBlock}
     </motion.div>
   )
 }
 
 export default function TimelinePage() {
-  const milestones: Milestone[] = [
-    {
-      phase: 'Phase 01',
-      title: 'Company Onboarding',
-      description:
-        'Japanese industry partners come aboard, define their tracks, and submit the real-world problem statements that teams will tackle.',
-      date: 'Jun 18 – Aug 10',
-      dateSub: 'Partner Intake',
-      icon: BriefcaseIcon,
-      side: 'card-left',
-    },
-    {
-      phase: 'Phase 02',
-      title: 'Participant Team Registration',
-      description:
-        'Applications open to students. Form your team, pick your track, and lock in your place in the hackathon.',
-      date: 'Aug 15 – Oct 5',
-      dateSub: 'Applications Open',
-      icon: UserCheckIcon,
-      side: 'card-right',
-    },
-    {
-      phase: 'Phase 03',
-      title: 'Internal Shortlisting',
-      description:
-        'Submissions are reviewed and the most promising teams are shortlisted to advance to the main event.',
-      date: 'Oct 15',
-      dateSub: 'Selection Day',
-      icon: ListChecksIcon,
-      side: 'card-left',
-    },
-    {
-      phase: 'Core Event',
-      title: 'Hackathon',
-      description:
-        'Two days of intense building, mentorship, and final pitches to a panel of industry judges. Winners and internship offers announced.',
-      date: 'Oct 24–25',
-      dateSub: 'Grand Finale',
-      icon: TerminalIcon,
-      side: 'card-right',
-      featured: true,
-    },
-  ];
+  const { t } = useT();
+  const milestoneIcons = [
+    BriefcaseIcon,
+    UserCheckIcon,
+    TerminalIcon,
+    ListChecksIcon,
+  ]
+  const milestones: Milestone[] = []
+  for (let i = 1; i <= 4; i++) {
+    milestones.push({
+      phase: t(`timeline.item${i}.phase`),
+      title: t(`timeline.item${i}.title`),
+      description: t(`timeline.item${i}.description`),
+      date: t(`timeline.item${i}.date`),
+      dateSub: t(`timeline.item${i}.dateSub`),
+      side: t(`timeline.item${i}.side`) == "card-left" ? "card-left" : "card-right",
+      featured:t(`timeline.item${i}.featured`) == "true" ? true : false,
+    });
+  }
   return (
     <main className="flex-grow pt-32 pb-section-gap px-margin-mobile md:px-margin-desktop max-w-[1280px] mx-auto w-full">
       <motion.div
@@ -207,15 +184,14 @@ export default function TimelinePage() {
         className="mb-20 md:mb-32 max-w-3xl"
       >
         <span className="font-label-caps text-label-caps text-primary tracking-widest uppercase mb-4 block">
-          Event Roadmap
+          {t("timeline.title")}
         </span>
         <h1 className="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-6">
-          The Journey to <br />
-          <span className="text-primary-container">Innovation.</span>
+          {t("timeline.journeyTo")} <br />
+          <span className="text-primary-container">{t("timeline.innovation")}</span>
         </h1>
         <p className="font-body-lg text-body-lg text-on-surface-variant">
-          Mark your calendars. A rigorous schedule designed to push boundaries,
-          test ideas, and culminate in a premier showcase of talent.
+          {t("timeline.description")}
         </p>
       </motion.div>
 
@@ -225,6 +201,7 @@ export default function TimelinePage() {
           <MilestoneRow
             key={milestone.title}
             milestone={milestone}
+            icon={milestoneIcons[index]}
             last={index === milestones.length - 1}
           />
         ))}

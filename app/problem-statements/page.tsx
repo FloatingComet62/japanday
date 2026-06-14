@@ -2,6 +2,7 @@
 
 import { motion } from "motion/react";
 import { LightbulbIcon } from "lucide-react";
+import { useT } from "next-i18next/client";
 
 const fadeUp = {
   initial: { opacity: 0, y: 20 },
@@ -9,6 +10,8 @@ const fadeUp = {
 };
 
 export default function ProblemStatementsPage() {
+  const { t } = useT();
+
   return (
     <main className="flex-grow pt-[120px] pb-section-gap flex items-center justify-center relative overflow-hidden">
       <div
@@ -36,16 +39,14 @@ export default function ProblemStatementsPage() {
             transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             className="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-6"
           >
-            Problem Statements
+            {t("ps.title")}
           </motion.h1>
           <motion.p
             {...fadeUp}
             transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             className="font-body-lg text-body-lg text-faint max-w-2xl leading-relaxed mb-12"
           >
-            Industry challenges from leading Japanese partners will be revealed
-            here soon. Prepare to tackle complex, real-world problems that demand
-            precision, innovation, and global foresight.
+            {t("ps.description")}
           </motion.p>
 
           <motion.div
@@ -59,7 +60,7 @@ export default function ProblemStatementsPage() {
                 <span className="relative inline-flex rounded-full h-3 w-3 bg-primary" />
               </span>
               <span className="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">
-                Awaiting Transmission
+                {t("ps.todo")}
               </span>
             </div>
           </motion.div>

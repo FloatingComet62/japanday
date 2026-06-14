@@ -11,8 +11,8 @@ import {
   UsersIcon,
   UserRoundIcon,
 } from "lucide-react";
-import type { LucideIcon } from "lucide-react";
 import { Logo } from "@/components/logo";
+import { useT } from "next-i18next/client";
 
 const reveal = {
   initial: { opacity: 0, y: 30 },
@@ -22,32 +22,32 @@ const reveal = {
 };
 
 export default function AboutPage() {
-  const team: { icon: LucideIcon; title: string; subtitle: string }[] = [
-    {
-      icon: UsersIcon,
-      title: "Core Committee",
-      subtitle: "Strategic Planning & Execution",
-    },
-    {
-      icon: Code2Icon,
-      title: "Technical Leads",
-      subtitle: "Infrastructure & Support",
-    },
-    {
-      icon: MegaphoneIcon,
-      title: "Outreach",
-      subtitle: "Sponsorships & PR",
-    },
+  const { t } = useT();
+  const teamIcons = [
+    UsersIcon,
+    Code2Icon,
+    MegaphoneIcon,
+  ]
+  const team: { title: string; subtitle: string }[] = [
   ];
+  for (let i = 1; i <= 3; i++) {
+    team.push({
+      title: t(`team.item${i}.title`),
+      subtitle: t(`team.item${i}.subtitle`),
+    })
+  }
 
+  const contactItemsIcons = [
+    MapPinIcon,
+    MailIcon,
+    PhoneIcon,
+  ]
   const contactItems: {
-    icon: LucideIcon;
     title: string;
     body: React.ReactNode;
   }[] = [
     {
-      icon: MapPinIcon,
-      title: "Location",
+      title: t("location"),
       body: (
         <>
           Thapar Institute of Engineering and Technology
@@ -57,8 +57,7 @@ export default function AboutPage() {
       ),
     },
     {
-      icon: MailIcon,
-      title: "Email",
+      title: t("footer.connectlinks.item2"),
       body: (
         <a
           href="mailto:japandayhack@thapar.edu"
@@ -69,8 +68,7 @@ export default function AboutPage() {
       ),
     },
     {
-      icon: PhoneIcon,
-      title: "Phone",
+      title: t("footer.connectlinks.item3"),
       body: "+91 175 239 3021 (General Inquiry)",
     },
   ];
@@ -82,18 +80,14 @@ export default function AboutPage() {
       >
         <div className="col-span-1 md:col-span-8 space-y-6">
           <span className="font-label-caps text-label-caps text-faint uppercase tracking-widest">
-            The Institution
+            {t("about.institute")}
           </span>
           <h1 className="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface">
-            Bridging Tradition <br />
-            <span className="text-primary">and Innovation</span>
+            {t("about.bridingtradition")} <br />
+            <span className="text-primary">{t("about.andinnovation")}</span>
           </h1>
           <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
-            Japan Day Hack is proudly hosted by the Thapar School of Liberal
-            Arts and Sciences (TSLAS) in collaboration with Thapar Institute. We
-            bring together diverse minds to solve real-world challenges,
-            blending traditional Japanese precision with forward-thinking
-            technological solutions.
+            {t("about.description")}
           </p>
         </div>
         <div className="col-span-1 md:col-span-4 h-full min-h-[300px] bg-surface-container-low rounded-lg border border-outline-variant/30 relative overflow-hidden flex items-center justify-center">
@@ -105,7 +99,7 @@ export default function AboutPage() {
       <motion.section {...reveal} className="space-y-12">
         <div className="space-y-2">
           <h2 className="font-headline-md text-headline-md text-on-surface">
-            Leadership &amp; Team
+            {t("about.team.title")}
           </h2>
           <div className="w-16 h-1 bg-primary rounded-full" />
         </div>
@@ -118,29 +112,25 @@ export default function AboutPage() {
             <div className="space-y-4">
               <div>
                 <h3 className="font-headline-sm text-headline-sm text-on-surface">
-                  Dr. Name Here
+                  {t("about.team.name")}
                 </h3>
                 <p className="font-label-caps text-label-caps text-primary uppercase">
-                  Dean, TSLAS
+                  {t("about.team.dean")}
                 </p>
               </div>
               <p className="text-on-surface-variant">
-                Guiding the vision of TSLAS to integrate liberal arts with deep
-                technological inquiry. The Dean champions the Japan Day Hack as a
-                platform for interdisciplinary excellence, encouraging students
-                to approach complex global problems with a holistic, disciplined
-                mindset.
+                {t("about.team.description")}
               </p>
               <button className="font-button text-button text-on-surface flex items-center gap-2 hover:text-primary transition-colors">
-                <span>Read Full Bio</span>
+                <span>{t("about.readfullbio")}</span>
                 <ArrowRightIcon className="size-[18px]" />
               </button>
             </div>
           </div>
 
           <div className="col-span-1 md:col-span-5 space-y-gutter">
-            {team.map((member) => {
-              const Icon = member.icon;
+            {team.map((member, i) => {
+              const Icon = teamIcons[i];
               return (
                 <div
                   key={member.title}
@@ -165,16 +155,15 @@ export default function AboutPage() {
           <div className="p-8 md:p-12 space-y-8">
             <div>
               <h2 className="font-headline-md text-headline-md text-on-surface mb-2">
-                Get in Touch
+                {t("about.getintouch")} 
               </h2>
               <p className="text-on-surface-variant">
-                For inquiries regarding participation, sponsorship, or general
-                information.
+                {t("about.getintouch.caption")}
               </p>
             </div>
             <div className="space-y-6">
-              {contactItems.map((item) => {
-                const Icon = item.icon;
+              {contactItems.map((item, i) => {
+                const Icon = contactItemsIcons[i];
                 return (
                   <div key={item.title} className="flex items-start gap-4">
                     <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
@@ -204,7 +193,7 @@ export default function AboutPage() {
               />
               <div className="bg-surface-container-lowest px-4 py-2 rounded-sm border border-outline-variant shadow-md mt-2">
                 <span className="font-button text-button text-on-surface">
-                  Thapar Institute
+                {t("about.thapar")}
                 </span>
               </div>
             </div>
