@@ -63,7 +63,7 @@ export default async function RootLayout({
           geistMono.variable,
         )}
       >
-        <body className="min-h-full flex flex-col text-on-background font-body-md antialiased relative bg-gradient-to-br from-primary/5 to-surface-container-lowest">
+        <body className="min-h-full flex flex-col text-on-background font-body-md antialiased relative">
         <TooltipProvider>
           <Navbar />
           {children}
