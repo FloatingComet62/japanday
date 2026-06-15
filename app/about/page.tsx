@@ -23,20 +23,6 @@ const reveal = {
 
 export default function AboutPage() {
   const { t } = useT();
-  const teamIcons = [
-    UsersIcon,
-    Code2Icon,
-    MegaphoneIcon,
-  ]
-  const team: { title: string; subtitle: string }[] = [
-  ];
-  for (let i = 1; i <= 3; i++) {
-    team.push({
-      title: t(`team.item${i}.title`),
-      subtitle: t(`team.item${i}.subtitle`),
-    })
-  }
-
   const contactItemsIcons = [
     MapPinIcon,
     MailIcon,
@@ -103,7 +89,7 @@ export default function AboutPage() {
           <div className="w-16 h-1 bg-primary rounded-full" />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+        <div className="flex flex-col lg:flex-row gap-gutter">
           <div className="col-span-1 md:col-span-7 bg-surface-container-lowest rounded-sm border border-outline-variant/50 ambient-shadow card-hover p-8 flex flex-col md:flex-row gap-8 items-start">
             <div className="w-32 h-32 shrink-0 rounded-full bg-surface-container-low overflow-hidden border-2 border-primary-container flex items-center justify-center">
               <UserRoundIcon className="size-16 text-outline-variant" />
@@ -111,40 +97,28 @@ export default function AboutPage() {
             <div className="space-y-4">
               <div>
                 <h3 className="font-headline-sm text-headline-sm text-on-surface">
-                  {t("about.team.name")}
+                  {t("about.tslas.name")}
                 </h3>
-                <p className="font-label-caps text-label-caps text-primary uppercase">
-                  {t("about.team.dean")}
-                </p>
               </div>
               <p className="text-on-surface-variant">
-                {t("about.team.description")}
+                {t("about.tslas")}
               </p>
-              <button className="font-button text-button text-on-surface flex items-center gap-2 hover:text-primary transition-colors">
-                <span>{t("about.readfullbio")}</span>
-                <ArrowRightIcon className="size-[18px]" />
-              </button>
             </div>
           </div>
-
-          <div className="col-span-1 md:col-span-5 space-y-gutter">
-            {team.map((member, i) => {
-              const Icon = teamIcons[i];
-              return (
-                <div
-                  key={member.title}
-                  className="bg-surface-container-lowest rounded-sm border border-outline-variant/50 p-6 flex items-center gap-4 hover:bg-surface-container-low transition-colors cursor-default"
-                >
-                  <Icon className="size-8 text-primary shrink-0" />
-                  <div>
-                    <h4 className="font-headline-sm text-lg font-semibold text-on-surface">
-                      {member.title}
-                    </h4>
-                    <p className="text-sm text-faint">{member.subtitle}</p>
-                  </div>
-                </div>
-              );
-            })}
+          <div className="col-span-1 md:col-span-7 bg-surface-container-lowest rounded-sm border border-outline-variant/50 ambient-shadow card-hover p-8 flex flex-col md:flex-row gap-8 items-start">
+            <div className="w-32 h-32 shrink-0 rounded-full bg-surface-container-low overflow-hidden border-2 border-primary-container flex items-center justify-center">
+              <UserRoundIcon className="size-16 text-outline-variant" />
+            </div>
+            <div className="space-y-4">
+              <div>
+                <h3 className="font-headline-sm text-headline-sm text-on-surface">
+                  {t("about.tiet.name")}
+                </h3>
+              </div>
+              <p className="text-on-surface-variant">
+                {t("about.tiet")}
+              </p>
+            </div>
           </div>
         </div>
       </motion.section>
