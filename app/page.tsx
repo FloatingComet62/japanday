@@ -6,7 +6,7 @@ import { About } from "./about";
 
 export default function Home() {
   return (
-    <main className="flex-grow pt-24 pb-section-gap">
+    <main className="flex-grow pb-section-gap">
       <Hero />
       <Stats />
       <About />

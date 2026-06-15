@@ -9,7 +9,7 @@ export function Hero() {
 
   return (
     <section className="relative min-h-[80vh] flex items-center bg-pattern overflow-hidden px-margin-mobile md:px-margin-desktop">
-      <div className="absolute inset-0 bg-gradient-to-br from-surface-container-lowest/80 to-surface-container-low/50 z-0" />
+      <div className="absolute inset-0 z-0" />
 
       <div className="max-w-[1280px] mx-auto relative z-10 grid grid-cols-1 md:grid-cols-12 gap-gutter w-full">
         <div className="md:col-span-8 flex flex-col justify-center">
@@ -17,10 +17,10 @@ export function Hero() {
             {t("hero.minititle")}
           </span>
           <h1 className="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-6 leading-tight">
-            {t("hero.title")}
+            {t("title")}
           </h1>
           <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mb-10 border-l-4 border-primary pl-6 py-2">
-          {t("hero.caption")}
+          {t("description")}
           </p>
           <div className="flex flex-wrap gap-4">
             <PartnerButton className="px-8 py-4 ambient-shadow" />

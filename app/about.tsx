@@ -37,7 +37,7 @@ export function About() {
     },
   ];
   return (
-    <section className="py-section-gap px-margin-mobile md:px-margin-desktop bg-surface-container-lowest">
+    <section className="py-section-gap px-margin-mobile md:px-margin-desktop">
       <div className="max-w-[1280px] mx-auto">
         <motion.div
           {...reveal}

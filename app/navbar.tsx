@@ -30,12 +30,12 @@ export function Navbar() {
   ]
 
   return (
-    <nav className="bg-surface/80 backdrop-blur-md border-b border-outline-variant/30 fixed top-0 w-full z-50 shadow-sm transition-transform duration-300">
-      <div className="flex justify-between items-center h-20 px-margin-mobile md:px-margin-desktop max-w-[1280px] mx-auto">
+    <nav className="w-full bg-surface/80 backdrop-blur-md border-b border-outline-variant/30 fixed top-0 w-full z-50 shadow-sm transition-transform duration-300">
+      <div className="flex justify-between items-center h-20 px-margin-mobile md:px-margin-desktop mx-auto">
         <Link href="/" className="flex items-center gap-2.5">
           <Logo className="h-9 w-9" />
           <span className="font-display-lg text-headline-sm font-extrabold tracking-tighter text-primary">
-            Japan Day Hack
+            {t('title')}
           </span>
         </Link>
 
@@ -55,8 +55,10 @@ export function Navbar() {
           ))}
         </div>
         
-        <LanguageSwitcher />
-        <PartnerButton className="hidden md:inline-flex px-6 py-3 active:scale-95" />
+        <div className="flex gap-4">
+          <LanguageSwitcher />
+          <PartnerButton className="hidden md:inline-flex px-6 py-3 active:scale-95" />
+        </div>
 
         <button
           className="md:hidden text-on-surface"

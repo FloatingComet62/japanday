@@ -39,7 +39,6 @@ export async function generateMetadata() {
     description: t("description")
   }
 }
-
 export default async function RootLayout({
   children,
 }: Readonly<{
@@ -63,12 +62,14 @@ export default async function RootLayout({
           geistMono.variable,
         )}
       >
-        <body className="min-h-full flex flex-col text-on-background font-body-md antialiased relative">
+        <body className="min-h-full flex flex-col text-on-background font-body-md antialiased relative bg-gradient-to-r from-[#BC002D21] to-[#ffffff]">
         <TooltipProvider>
           <Navbar />
-          {children}
+          <div className="bg-pattern">
+            {children}
+          </div>
           <Footer />
-          <div className="fixed bottom-0 left-0 w-full bg-surface-container-lowest border-t border-outline-variant/30 p-4 md:hidden z-40 shadow-[0_-4px_20px_rgba(0,0,0,0.05)]">
+          <div className="fixed bottom-0 left-0 w-full border-t border-outline-variant/30 p-4 md:hidden z-40 shadow-[0_-4px_20px_rgba(0,0,0,0.05)]">
             <PartnerButton className="w-full px-6 py-4" />
           </div>
           <Toaster />

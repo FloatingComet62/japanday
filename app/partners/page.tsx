@@ -15,7 +15,7 @@ const fadeUp = {
   viewport: { once: true, amount: 0.2 },
 }
 
-export default function ParntersPage() {
+export default function PartersPage() {
   const { t } = useT();
   return (
     <main className="flex-grow pt-32 pb-section-gap relative overflow-hidden">

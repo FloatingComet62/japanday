@@ -90,9 +90,8 @@ export default function AboutPage() {
             {t("about.description")}
           </p>
         </div>
-        <div className="col-span-1 md:col-span-4 h-full min-h-[300px] bg-surface-container-low rounded-lg border border-outline-variant/30 relative overflow-hidden flex items-center justify-center">
+        <div className="col-span-1 md:col-span-4 h-full min-h-[300px] rounded-lg relative overflow-hidden flex items-center justify-center">
           <Logo className="w-2/3 h-2/3" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
         </div>
       </motion.section>
 

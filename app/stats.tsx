@@ -54,7 +54,7 @@ export function Stats() {
   ];
 
   return (
-    <section className="py-20 bg-surface-container-low px-margin-mobile md:px-margin-desktop border-y border-outline-variant/30">
+    <section className="py-20 px-margin-mobile md:px-margin-desktop border-y border-outline-variant/30">
       <div className="max-w-[1280px] mx-auto">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-gutter text-center">
           {stats.map((stat, index) => (
